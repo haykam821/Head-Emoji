@@ -5,9 +5,11 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 
+import io.github.haykam821.heademoji.HeadEmojiPackets;
 import io.github.haykam821.heademoji.Main;
 import net.fabricmc.fabric.api.client.command.v1.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v1.FabricClientCommandSource;
+import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.text.TranslatableText;
 
 public final class HeadEmojiCommand {
@@ -39,13 +41,18 @@ public final class HeadEmojiCommand {
 	}
 
 	private static int executeClear(CommandContext<FabricClientCommandSource> context) {
+		FabricClientCommandSource source = context.getSource();
+
 		int clientSize = Main.CLIENT_REGISTRY.size();
 		Main.CLIENT_REGISTRY.clear();
 
 		int serverSize = Main.SERVER_REGISTRY.size();
 		Main.SERVER_REGISTRY.clear();
 
-		context.getSource().sendFeedback(new TranslatableText("command.heademoji.clear.success", clientSize, serverSize));
+		ClientPlayNetworkHandler networkHandler = source.getClient().getNetworkHandler();
+		networkHandler.sendPacket(HeadEmojiPackets.createRequestEmojiPacket());
+
+		source.sendFeedback(new TranslatableText("command.heademoji.clear.success", clientSize, serverSize));
 		return clientSize + serverSize;
 	}
 }
