@@ -1,0 +1,5 @@
+{
+	"command.heademoji.clear.success": "Cleared %d client and %d server head emojis",
+	"command.heademoji.register.failure": "Failed to register head emoji with key '%s' to client",
+	"command.heademoji.register.success": "Registered head emoji with key '%s' to client"
+}

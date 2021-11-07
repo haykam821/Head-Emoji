@@ -1,0 +1,29 @@
+{
+	"schemaVersion": 1,
+	"id": "heademoji",
+	"version": "${version}",
+	"name": "Head Emoji",
+	"description": "Renders skin textures as emojis in chat.",
+	"authors": [
+		"haykam821"
+	],
+	"contact": {
+		"homepage": "https://github.com/haykam821/Head-Emoji#readme",
+		"issues": "https://github.com/haykam821/Head-Emoji/issues"
+	},
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"io.github.haykam821.heademoji.Main"
+		]
+	},
+	"mixins": [
+		"heademoji.mixin.json"
+	],
+	"license": "MIT",
+	"icon": "assets/heademoji/icon.png",
+	"depends": {
+		"fabricloader": ">=0.4.0",
+		"fabric": "*"
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"package": "io.github.haykam821.heademoji.mixin",
+	"compatibilityLevel": "JAVA_8",
+	"client": [
+		"ChatHudLineMixin",
+		"ChatHudMixin",
+		"SkullBlockEntityRendererAccessor",
+		"TextRendererAccessor",
+		"TranslatableTextMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

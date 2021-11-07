@@ -1,0 +1,13 @@
+{
+	"providers": [
+		{
+			"type": "bitmap",
+			"file": "heademoji:font/emoji_placeholder.png",
+			"height": 8,
+			"ascent": 8,
+			"chars": [
+				"\uEF04"
+			]
+		}
+	]
+}
